@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Event Registration System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      padding: 20px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .logo span {
+      color: #60a5fa;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #93c5fd;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 80vh;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 52px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      color: #93c5fd;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: #dbeafe;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      max-width: 550px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #1e3a8a;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #eff6ff;
+    }
+
+    .hero-card {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    .hero-card h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .hero-card ul {
+      list-style: none;
+    }
+
+    .hero-card li {
+      margin-bottom: 14px;
+      font-size: 17px;
+      color: #e0f2fe;
+    }
+
+    .hero-card li::before {
+      content: "✔ ";
+      color: #93c5fd;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #dbeafe;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 38px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero-text p {
+        margin: 0 auto 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="container">
+    <nav>
+      <div class="logo">Cloud<span>Deploy</span></div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container hero">
+    <section class="hero-text">
+      <h1>Deploy Your <span>Web Applications</span> to the Cloud</h1>
+      <p>
+        A modern cloud-hosted platform for deploying full-stack applications.
+        Manage frontend, backend, and databases seamlessly using AWS EC2,
+        MongoDB Atlas, and Node.js.
+      </p>
+      <a href="#" class="btn">Get Started</a>
+    </section>
+
+    <aside class="hero-card">
+      <h3>Project Highlights</h3>
+      <ul>
+        <li>AWS EC2 Ubuntu Server</li>
+        <li>MongoDB Atlas Database</li>
+        <li>Node.js & Express Backend</li>
+        <li>React + Vite Frontend</li>
+        <li>Public Internet Access</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    © 2026 CloudDeploy. Designed and deployed by Shradha.
+  </footer>
+
+</body>
+</html>
