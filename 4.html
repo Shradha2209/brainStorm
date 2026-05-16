@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Chatbot</title>
+
+    <style>
+        body {
+            font-family: "Arial";
+            background-color: white;
+            padding-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .chat {
+            width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            overflow: hidden;
+        }
+
+        h2 {
+            margin: 0;
+            padding: 15px;
+            background-color: #0077b6;
+            color: white;
+            text-align: center;
+        }
+
+        #box {
+            height: 350px;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: white;
+        }
+
+        .msg {
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .user {
+            background-color: #0077b6;
+            color: white;
+            margin-left: auto;
+        }
+
+        .bot {
+            background-color: #dfe9f3;
+        }
+
+        .input {
+            display: flex;
+            padding: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-left: 5px;
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .suggestions {
+            padding: 0 10px 10px;
+        }
+
+        .suggestions button {
+            margin: 3px;
+            border-radius: 20px;
+            background-color: #caf0f8;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat">
+        <h2>Marina chatbot</h2>
+
+        <div id="box">
+            <div class="msg bot">
+                Hello! Ask me about boat rental, booking, timing, payment, or contact.
+            </div>
+        </div>
+
+        <div class="suggestions">
+            <button onclick="quick('boat rental')">Boat Rental</button>
+            <button onclick="quick('booking')">Booking</button>
+            <button onclick="quick('timing')">Timing</button>
+            <button onclick="quick('payment')">Payment</button>
+            <button onclick="quick('contact')">Contact</button>
+        </div>
+
+        <div class="input">
+            <input type="text" id="msg" placeholder="Type a messsage...">
+            <button onclick="send()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function getReply(text) {
+            text = text.toLowerCase();
+
+            if (text.includes("boat"))
+                return "Boat Rental: Rowboat ₹300/hr, Motor Boat ₹800/hr.";
+
+            else if (text.includes("booking"))
+                return "You can book by calling +91-9876543210.";
+
+            else if (text.includes("timing") || text.includes("open"))
+                return "We are open daily from 7 AM to 7 PM.";
+
+            else if (text.includes("payment"))
+                return "We accept UPI, Card, and Cash.";
+
+            else if (text.includes("contact"))
+                return "Phone: +91-9876543210";
+
+            else if (text.includes("hello") || text.includes("hi"))
+                return "Hello! How can I help you?";
+
+            else if (text.includes("thanks"))
+                return "You're welcome!";
+
+            else if (text.includes("bye"))
+                return "Goodbye!";
+
+            else
+                return "Sorry, I didn't understand.";
+        }
+
+        function addMessage(text,type){
+            let box = document.getElementById("box");
+
+            let div = document.createElement("div");
+            div.className = "msg "+ type;
+            div.innerText= text;
+
+            box.appendChild(div);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function send(){
+            let input = document.getElementById("msg");
+            let text = input.value.trim();
+
+            if(text === "") return;
+
+            addMessage(text,"user");
+            addMessage(getReply(text),"bot");
+
+            input.value= "";
+        }
+
+        function quick(text){
+            document.getElementById("msg").value = text;
+            send();
+        }
+
+        document.getElementById("msg").addEventListener("keypress", function(e){
+            if (e.key === "Enter") send();
+        });
+    </script>
+</body>
+
+</html>
