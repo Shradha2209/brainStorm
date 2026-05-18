@@ -17,8 +17,8 @@ public class ProductInventoryController {
 
     public void loadProducts() {
         productList = [
-            SELECT Id, Name, Serial_No__c,
-                   Manufacture_Date__c, Expiry_Date__c
+            SELECT Id, Name, Serial_no__c,
+                   Manfacture_date__c, Expiry_date__c
             FROM Product_Inventory__c
             ORDER BY CreatedDate DESC
         ];
